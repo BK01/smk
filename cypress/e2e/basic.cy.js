@@ -14,4 +14,10 @@ describe('SMK Basic Tests', () => {
     it('Has a Location tool with the expected ID', () => {
         cy.window().its('SMK.MAP.1.$tool.LocationTool.rootId').should('eq', 'LocationTool');
     })
+
+    it('Click on menu button adds list panel', () => {
+        // Click on menu button
+        cy.get('i[class="material-icons"]').first().click();
+        cy.get('div[class="smk-tool-list-panel smk-elastic-panel"]').should('exist');
+    })
 })
